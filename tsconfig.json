@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./*"],
+      "@constants/*": ["src/constants/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@exceptions/*": ["src/exceptions/*"],
+      "@handlers/*": ["src/handlers/*"],
+      "@models/*": ["src/models/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@util/*": ["src/util/*"]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+  },
+  "include": ["src/**/*"]
+}
