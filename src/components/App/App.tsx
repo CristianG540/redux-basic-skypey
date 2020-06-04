@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-import { createStore } from 'redux'
-// Redux
-import rootReducer from '../../redux/reducers/rootReducer'
+import { values } from 'ramda'
 // Components
-import HelloWorld from '../HelloWorld/HelloWorld'
-
-const initialState = { tech: 'Reacto+' }
-const store = createStore(rootReducer, initialState)
+import Main from '../Main/Main'
+import Sidebar from '../Sidebar/Sidebar'
+// Redux
+import store from '../../redux/store/mainStore'
 
 class App extends Component {
   render (): JSX.Element {
-    return <HelloWorld tech={store.getState().tech} />
+    const { contacts } = store.getState()
+    return (
+      <div className='App'>
+        <Sidebar contacts={values(contacts)} />
+        <Main />
+      </div>
+    )
   }
 }
 

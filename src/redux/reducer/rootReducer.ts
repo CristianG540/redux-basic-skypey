@@ -1,13 +1,12 @@
 import { clone } from 'ramda'
+// Models
+import MainState from '../store/models/mainState'
 
-interface AppState {
-  tech: string
-}
 // type Action =
 //   | { type: "SET_ONE"; payload: string }
 //   | { type: "SET_TWO"; payload: number };
 
-const rootReducer = (prevState: AppState): AppState => {
+const rootReducer = (prevState: MainState): MainState => {
   const nextState = clone(prevState)
 
   return nextState
