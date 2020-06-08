@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { values } from 'ramda'
 // Components
-import Main from '../Main/Main'
-import Sidebar from '../Sidebar/Sidebar'
+import Main from '../../components/Main/Main'
+import Sidebar from '../../components/Sidebar/Sidebar'
 // Redux
 import store from '../../redux/store/mainStore'
 

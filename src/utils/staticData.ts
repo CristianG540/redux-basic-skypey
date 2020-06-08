@@ -1,13 +1,15 @@
 import shortid from 'shortid' // shortid.generate() returns a unique "short" id
-import { sentence } from 'txtgen' // txtgen.sentence() returns random "readable" sentences
+import * as txtgen from 'txtgen' // txtgen.sentence() returns random "readable" sentences
 import faker from 'faker' // faker is used for generating random fake data.
 import { mapKeys, forEach } from 'lodash'
+// Interfaces
+import Contact from '../redux/store/models/contact'
 
 const users = generateUsers(10)
 export const contacts = mapKeys(users, 'userId')
 
-export const getMessages = messagesPerUser => {
-  const messages = {}
+export const getMessages = (messagesPerUser:number) => {
+  const messages: { [key: string]: unknown } = {}
   forEach(users, user => {
     messages[user.userId] = {
       ...mapKeys(generateMsgs(messagesPerUser), 'number')
@@ -16,34 +18,25 @@ export const getMessages = messagesPerUser => {
   return messages
 }
 
-// just an example of how the state object is structured
-export const state = {
-  user: generateUser(),
-  messages: getMessages(10),
-  typing: '',
-  contacts,
-  activeUserId: null
-}
-
 /**
  * @returns {Object} - a new user object
  */
-export function generateUser () {
+export function generateUser (): Contact {
   return {
     name: faker.name.findName(),
     email: faker.internet.email(),
     profilePic: faker.internet.avatar(),
-    status: sentence(),
+    status: txtgen.sentence(),
     userId: shortid.generate()
   }
 }
 /**
  * @returns {Object} - a new message object
  */
-function generateMsg (number) {
+function generateMsg (number: number) {
   return {
     number,
-    text: sentence(),
+    text: txtgen.sentence(),
     is_user_msg: faker.random.boolean()
   }
 }
@@ -53,7 +46,7 @@ function generateMsg (number) {
  * @param {Function} generateUser - function that generates a single user
  * @returns {Array} - an array of user objects with length n = numberOfUsers
  */
-function generateUsers (numberOfUsers) {
+function generateUsers (numberOfUsers: number) {
   return Array.from({ length: numberOfUsers }, () => generateUser())
 }
 

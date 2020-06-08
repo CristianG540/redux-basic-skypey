@@ -3,9 +3,16 @@ import { render } from 'react-dom'
 // Redux
 import store from './redux/store/mainStore'
 // Components
-import App from './components/App/App'
+import App from './containers/App/App'
 // Styles
 import './styles/main.scss'
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log(
+    'Looks like we are in development mode! 🐝🐝🐝:',
+    process.env.NODE_ENV
+  )
+}
 
 function fancyLog () {
   console.log('%c Rendered with 🚩', 'background: purple; color: #FFF', store.getState())

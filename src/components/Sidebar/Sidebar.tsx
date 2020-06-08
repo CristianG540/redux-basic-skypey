@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 // Models
 import Contact from '../../redux/store/models/contact'
 // Components
-import User from '../User/User'
+import User from '../../containers/User/User'
 // Styles
 import './Sidebar.scss'
 

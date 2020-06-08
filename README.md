@@ -1,1 +1,1 @@
-# little-starter-parcel
+# little-starter-webpack
