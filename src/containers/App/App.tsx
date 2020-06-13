@@ -9,6 +9,7 @@ import store from '../../redux/store/mainStore'
 class App extends Component {
   render (): JSX.Element {
     const { contacts } = store.getState()
+
     return (
       <div className='App'>
         <Sidebar contacts={values(contacts)} />

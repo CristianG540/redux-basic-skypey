@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // Models
-import Contact from '../../redux/store/models/contact'
+import UserModel from '../../redux/store/models/user'
 // Components
 import User from '../../containers/User/User'
 // Styles
 import './Sidebar.scss'
 
-const Sidebar = ({ contacts }: { contacts: Contact[] }): JSX.Element => {
+const Sidebar = ({ contacts }: { contacts: UserModel[] }): JSX.Element => {
   return (
     <aside className='Sidebar'>
       {contacts.map(contact => (

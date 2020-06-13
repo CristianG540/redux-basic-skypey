@@ -1,12 +1,7 @@
 import { createStore } from 'redux'
-import rootReducer from '../reducer/rootReducer'
-// Models
-import MainState from './models/mainState'
-// Utils
-import { contacts } from '../../utils/staticData'
+// Reducer
+import rootReducer from '../reducer'
 
-const initialState: MainState = { contacts }
-
-const store = createStore(rootReducer, initialState)
+const store = createStore(rootReducer)
 
 export default store
