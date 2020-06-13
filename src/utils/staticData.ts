@@ -1,9 +1,9 @@
 import shortid from 'shortid' // shortid.generate() returns a unique "short" id
 import * as txtgen from 'txtgen' // txtgen.sentence() returns random "readable" sentences
-import faker from 'faker' // faker is used for generating random fake data.
+import { name, internet, random as fRandom } from 'faker' // faker is used for generating random fake data.
 import { mapKeys, forEach } from 'lodash'
 // Interfaces
-import Contact from '../redux/store/models/contact'
+import { User } from '../redux/store/models'
 
 const users = generateUsers(10)
 export const contacts = mapKeys(users, 'userId')
@@ -21,11 +21,11 @@ export const getMessages = (messagesPerUser:number) => {
 /**
  * @returns {Object} - a new user object
  */
-export function generateUser (): Contact {
+export function generateUser (): User {
   return {
-    name: faker.name.findName(),
-    email: faker.internet.email(),
-    profilePic: faker.internet.avatar(),
+    name: name.findName(),
+    email: internet.email(),
+    profilePic: internet.avatar(),
     status: txtgen.sentence(),
     userId: shortid.generate()
   }
@@ -37,7 +37,7 @@ function generateMsg (number: number) {
   return {
     number,
     text: txtgen.sentence(),
-    is_user_msg: faker.random.boolean()
+    is_user_msg: fRandom.boolean()
   }
 }
 /**
